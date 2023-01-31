@@ -1,14 +1,16 @@
+import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { Avatar } from "react-native-elements";
+import DatePicker from "react-native-styled-datepicker";
 
-export default function ProfileScreen() {
+const CalendarScreen: any = () => {
   return (
     <View style={styles.container}>
-      <Text>ProfileScreen</Text>
-      <Avatar rounded title="MD" />
+      <Text>CalendarScreen</Text>
+      <DatePicker />
     </View>
   );
-}
+};
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -16,4 +18,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  calendar: {
+    height: 20,
+    width: 30,
+  },
 });
+
+export default CalendarScreen;

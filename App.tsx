@@ -7,6 +7,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NativeBaseProvider } from "native-base";
 import React, { useEffect, useState } from "react";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
+import CalendarScreen from "./screens/CalendarScreen";
 
 // Screens
 import ForgetPasswordScreen from "./screens/connexion/ForgetPasswordScreen";
@@ -44,6 +45,8 @@ export default function App() {
               iconName = "user";
             } else if (route.name === "Map") {
               iconName = "globe";
+            } else if (route.name === "Calendar") {
+              iconName = "calendar";
             }
 
             return <FontAwesome name={iconName} size={size} color={color} />;
@@ -54,7 +57,7 @@ export default function App() {
         })}
       >
         <Tab.Screen name="Home" component={HomeScreen} />
-
+        <Tab.Screen name="Calendar" component={CalendarScreen} />
         <Tab.Screen name="Profile" component={ProfileScreen} />
         <Tab.Screen name="Map" component={MapScreen} />
       </Tab.Navigator>
