@@ -1,7 +1,6 @@
 import { default as React, useState } from "react";
 import { Alert, Pressable, StyleSheet, Text, View } from "react-native";
 import { Icon, Input } from "react-native-elements";
-import PhoneInput from "react-native-phone-number-input";
 
 export default function RegisterScreenLon({ navigation }: any) {
   const [secureTextEntry, setSecureTextEntry] = useState(false);
@@ -23,10 +22,10 @@ export default function RegisterScreenLon({ navigation }: any) {
     ) {
       Alert.alert("Attention", "Veuillez remplir tous les champs");
       return;
-    } else if (userInfos.password.length < 6) {
+    } else if (userInfos.password.length < 7) {
       Alert.alert(
         "Attention",
-        "Le mot de passe doit contenir au moins 6 caractères"
+        "Le mot de passe doit contenir au moins 7 caractères"
       );
       return;
     } else if (
@@ -71,10 +70,24 @@ export default function RegisterScreenLon({ navigation }: any) {
       </View>
       <View style={styles.registerContainer}>
         <Text style={styles.registerText}>Créez votre compte</Text>
-        <PhoneInput
+        {/* <PhoneInput
           placeholder="Numéro de téléphone"
           defaultValue={userInfos.phone}
           defaultCode="FR"
+          value={userInfos.phone}
+          onChangeText={(text) => setUserInfos({ ...userInfos, phone: text })}
+        /> */}
+        <Input
+          leftIcon={
+            <Icon
+              name="phone"
+              type="material-community"
+              size={20}
+              color="black"
+            />
+          }
+          keyboardType="phone-pad"
+          placeholder="Numéro de téléphone"
           value={userInfos.phone}
           onChangeText={(text) => setUserInfos({ ...userInfos, phone: text })}
         />
@@ -120,7 +133,9 @@ export default function RegisterScreenLon({ navigation }: any) {
         />
 
         <Pressable style={styles.buttonLogin}>
-          <Text style={styles.textLogin}>Créer mon compte</Text>
+          <Text style={styles.textLogin} onPress={handleRegister}>
+            Créer mon compte
+          </Text>
         </Pressable>
       </View>
     </View>
@@ -134,7 +149,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  // Login
+  // LOGIN CONTAINER STYLES
 
   logContainer: {
     width: "100%",
@@ -142,7 +157,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 0,
+    marginTop: 90,
   },
 
   logText: {

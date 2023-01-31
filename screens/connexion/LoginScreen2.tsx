@@ -7,6 +7,12 @@ export default function LoginScreen2({ navigation }: any) {
   const showPassword = () => {
     setSecureTextEntry(!secureTextEntry);
   };
+
+  const handleLogin = () => {
+    console.log("login");
+    navigation.navigate("TabNavigator");
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.loginContainer}>
@@ -47,7 +53,9 @@ export default function LoginScreen2({ navigation }: any) {
         />
 
         <Pressable style={styles.buttonLogin}>
-          <Text style={styles.textLogin}>Se connecter</Text>
+          <Text onPress={() => handleLogin()} style={styles.textLogin}>
+            Se connecter
+          </Text>
         </Pressable>
         <Text
           onPress={() => navigation.navigate("Forget Password")}
