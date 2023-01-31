@@ -3,7 +3,7 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 import { Icon, Input } from "react-native-elements";
 
 export default function LoginScreen2({ navigation }: any) {
-  const [secureTextEntry, setSecureTextEntry] = useState(false);
+  const [secureTextEntry, setSecureTextEntry] = useState(true);
   const showPassword = () => {
     setSecureTextEntry(!secureTextEntry);
   };

@@ -70,17 +70,11 @@ export default function RegisterScreenLon({ navigation }: any) {
         </Pressable>
       </View>
       <View style={styles.registerContainer}>
-        <Text style={styles.registerText}>Nouveau sur SLS ?</Text>
+        <Text style={styles.registerText}>Créez votre compte</Text>
         <PhoneInput
-          containerStyle={{
-            borderColor: "grey",
-            borderWidth: 1,
-            height: 70,
-            width: 300,
-            border: "none",
-          }}
+          placeholder="Numéro de téléphone"
+          defaultValue={userInfos.phone}
           defaultCode="FR"
-          layout="first"
           value={userInfos.phone}
           onChangeText={(text) => setUserInfos({ ...userInfos, phone: text })}
         />
@@ -94,9 +88,16 @@ export default function RegisterScreenLon({ navigation }: any) {
             />
           }
           placeholder="Email"
+          value={userInfos.email}
+          onChangeText={(text) => setUserInfos({ ...userInfos, email: text })}
         />
 
         <Input
+          value={userInfos.password}
+          onChangeText={(text) =>
+            setUserInfos({ ...userInfos, password: text })
+          }
+          style={styles.inputPassword}
           leftIcon={
             <Icon
               name="lock"
@@ -106,7 +107,7 @@ export default function RegisterScreenLon({ navigation }: any) {
             />
           }
           secureTextEntry={secureTextEntry}
-          placeholder="Password"
+          placeholder="Mot de passe"
           rightIcon={
             <Icon
               name={secureTextEntry ? "eye-off-outline" : "eye-outline"}
@@ -141,7 +142,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     alignItems: "center",
     justifyContent: "center",
-    marginBottom: 100,
+    marginTop: 0,
   },
 
   logText: {
@@ -163,26 +164,28 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
   },
-  // Register
-  //LOGIN CONTAINER STYLES
+
+  //REGISTER CONTAINER STYLES
   registerContainer: {
     width: "100%",
-    height: 320,
+    height: 380,
     backgroundColor: "white",
     alignItems: "center",
     justifyContent: "center",
+    marginBottom: 250,
+    marginTop: 25,
   },
   registerText: {
     fontSize: 20,
     // fontWeight: "bold",
-    marginBottom: 20,
+    marginBottom: 30,
   },
   inputEmail: {
     backgroundColor: "white",
     width: 10,
   },
   inputPassword: {
-    width: 400,
+    width: 200,
   },
 
   buttonLogin: {
