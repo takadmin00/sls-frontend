@@ -7,14 +7,16 @@ import {
   HStack,
   Input,
   Link,
-  NativeBaseProvider,
   Text,
+  View,
   VStack,
 } from "native-base";
+
 import React from "react";
+import { ImageBackground, StyleSheet } from "react-native";
 
 export default function LoginScreen({ navigation }: any) {
-  const InscriptionForms = () => {
+  const LoginForms = () => {
     const ForgetPassword = () => {
       navigation.navigate("Forget Password");
     };
@@ -100,8 +102,21 @@ export default function LoginScreen({ navigation }: any) {
   };
 
   return (
-    <NativeBaseProvider>
-      <InscriptionForms />
-    </NativeBaseProvider>
+    <View style={styles.container}>
+      <ImageBackground
+        source={require("../../assets/background-screen.jpg")}
+        style={{ width: "100%", height: "100%" }}
+      >
+        <LoginForms />
+      </ImageBackground>
+    </View>
   );
 }
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});

@@ -1,9 +1,18 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
 
 export default function WelcomeScreen() {
   return (
     <View style={styles.container}>
-      <Text>Welcome to SLS!</Text>
+      <Image
+        source={require("../assets/background-welcome.jpg")}
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+        }}
+      />
     </View>
   );
 }

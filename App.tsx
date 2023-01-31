@@ -9,8 +9,8 @@ import { useEffect, useState } from "react";
 
 // Screens
 import ForgetPasswordScreen from "./screens/connexion/ForgetPasswordScreen";
-import LoginScreen from "./screens/connexion/LoginScreen";
-import RegisterScreen from "./screens/connexion/RegisterScreen";
+import LoginScreen2 from "./screens/connexion/LoginScreen2";
+import RegisterScreenLon from "./screens/connexion/RegisterScreenLon";
 import WelcomeScreen from "./screens/WelcomeScreen";
 
 const Stack = createNativeStackNavigator();
@@ -33,15 +33,21 @@ export default function App() {
     <NativeBaseProvider>
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Login">
-          <Stack.Screen name="Welcome" component={WelcomeScreen} />
           <Stack.Screen
-            name="Login"
-            component={LoginScreen}
+            name="Welcome"
+            component={WelcomeScreen}
             options={{ headerShown: false }}
           />
+
+          <Stack.Screen
+            name="Login"
+            component={LoginScreen2}
+            options={{ headerShown: false }}
+          />
+
           <Stack.Screen
             name="Register"
-            component={RegisterScreen}
+            component={RegisterScreenLon}
             options={{ headerShown: true }}
           />
           <Stack.Screen

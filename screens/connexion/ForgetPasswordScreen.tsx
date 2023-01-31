@@ -8,7 +8,7 @@ import {
   VStack,
 } from "native-base";
 import React from "react";
-import { View } from "react-native";
+import { ImageBackground, StyleSheet, View } from "react-native";
 
 export default function ForgetPasswordScreen() {
   const ForgetPassword = () => {
@@ -52,8 +52,21 @@ export default function ForgetPasswordScreen() {
     );
   };
   return (
-    <View>
-      <ForgetPassword />
+    <View style={styles.container}>
+      <ImageBackground
+        source={require("../../assets/background-screen.jpg")}
+        style={{ width: "100%", height: "100%" }}
+      >
+        <ForgetPassword />
+      </ImageBackground>
     </View>
   );
 }
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});

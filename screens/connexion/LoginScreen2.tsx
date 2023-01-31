@@ -1,37 +1,17 @@
-import { View } from "native-base";
-import React from "react";
-import { Pressable, StyleSheet, Text } from "react-native";
+import React, { useState } from "react";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import { Icon, Input } from "react-native-elements";
-import PhoneInput from "react-native-phone-number-input";
 
-export default function RegisterScreen({ navigation }: any) {
+export default function LoginScreen2({ navigation }: any) {
+  const [secureTextEntry, setSecureTextEntry] = useState(false);
+  const showPassword = () => {
+    setSecureTextEntry(!secureTextEntry);
+  };
   return (
     <View style={styles.container}>
       <View style={styles.loginContainer}>
-        <Text style={styles.loginText}>Vous avez déjà utilisé Sls ?</Text>
-        <Pressable style={styles.buttonLogin}>
-          <Text
-            style={styles.textRegister}
-            onPress={() => navigation.navigate("Login")}
-          >
-            Se connecter
-          </Text>
-        </Pressable>
-      </View>
-      <View style={styles.loginContainer}>
         <Text style={styles.loginText}>Vous avez déjà utilisé SLS ?</Text>
-        <PhoneInput
-          containerStyle={{
-            borderColor: "grey",
-            borderWidth: 1,
-            height: 70,
-            width: 300,
-          }}
-          defaultCode="FR"
-          layout="first"
-          value={userInfos.phone}
-          onChangeText={(text) => setUserInfos({ ...userInfos, phone: text })}
-        />
+
         <Input
           leftIcon={
             <Icon
@@ -76,7 +56,18 @@ export default function RegisterScreen({ navigation }: any) {
           Mot de passe oublié ?
         </Text>
       </View>
-      <Text style={styles.middle}> Ou </Text>
+      <Text style={styles.middle}>Ou</Text>
+      <View style={styles.registerContainer}>
+        <Text style={styles.newRegister}>Pas encore de compte ?</Text>
+        <Pressable style={styles.buttonRegister}>
+          <Text
+            style={styles.textRegister}
+            onPress={() => navigation.navigate("Register")}
+          >
+            S'inscrire
+          </Text>
+        </Pressable>
+      </View>
     </View>
   );
 }
@@ -89,39 +80,9 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   middle: {
-    fontSize: 20,
-    fontWeight: "bold",
-    color: "black",
     marginTop: 20,
     marginBottom: 20,
-  },
-
-  //REGISTER CONTAINER STYLES
-  loginContainer: {
-    width: "100%",
-    height: 150,
-    backgroundColor: "white",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
-  loginText: {
     fontSize: 15,
-  },
-
-  buttonLogin: {
-    backgroundColor: "white",
-    width: 400,
-    height: 50,
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: 20,
-    borderRadius: 10,
-    borderWidth: 1,
-  },
-  textRegister: {
-    color: "black",
-    fontSize: 20,
     fontWeight: "bold",
   },
   //LOGIN CONTAINER STYLES
@@ -163,5 +124,33 @@ const styles = StyleSheet.create({
     textDecorationLine: "underline",
     marginTop: 20,
     fontSize: 15,
+  },
+  //REGISTER CONTAINER STYLES
+  registerContainer: {
+    width: "100%",
+    height: 150,
+    backgroundColor: "white",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  newRegister: {
+    fontSize: 15,
+  },
+
+  buttonRegister: {
+    backgroundColor: "white",
+    width: 400,
+    height: 50,
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 20,
+    borderRadius: 10,
+    borderWidth: 1,
+  },
+  textRegister: {
+    color: "black",
+    fontSize: 20,
+    fontWeight: "bold",
   },
 });
