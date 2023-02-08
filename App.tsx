@@ -7,15 +7,15 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NativeBaseProvider } from "native-base";
 import React, { useEffect, useState } from "react";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
-import CalendarScreen from "./screens/CalendarScreen";
+import CalendarScreen from "./screens/tabNavigator/CalendarScreen";
 
 // Screens
 import ForgetPasswordScreen from "./screens/connexion/ForgetPasswordScreen";
-import LoginScreen2 from "./screens/connexion/LoginScreen2";
+import LoginScreen2 from "./screens/connexion/LoginScreen";
 import ProfileScreen from "./screens/connexion/ProfileScreen";
-import RegisterScreenLon from "./screens/connexion/RegisterScreenLon";
-import HomeScreen from "./screens/HomeScreen";
-import MapScreen from "./screens/MapScreen";
+import RegisterScreenLon from "./screens/connexion/RegisterScreen";
+import HomeScreen from "./screens/tabNavigator/HomeScreen";
+import MapScreen from "./screens/tabNavigator/MapScreen";
 import WelcomeScreen from "./screens/WelcomeScreen";
 
 export default function App() {
@@ -51,8 +51,8 @@ export default function App() {
 
             return <FontAwesome name={iconName} size={size} color={color} />;
           },
-          tabBarActiveTintColor: "#2196f3",
-          tabBarInactiveTintColor: "gray",
+          tabBarActiveTintColor: "blue",
+          tabBarInactiveTintColor: "black",
           headerShown: false,
         })}
       >
@@ -81,12 +81,12 @@ export default function App() {
           />
 
           <Stack.Screen
-            name="Register"
+            name="Inscription"
             component={RegisterScreenLon}
             options={{ headerShown: true }}
           />
           <Stack.Screen
-            name="Forget Password"
+            name="Mot de passe oublié"
             component={ForgetPasswordScreen}
             options={{ headerShown: true }}
           />

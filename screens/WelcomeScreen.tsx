@@ -4,7 +4,7 @@ export default function WelcomeScreen() {
   return (
     <View style={styles.container}>
       <Image
-        source={require("../assets/background-welcome.jpg")}
+        source={require("../assets/ButterflyLoading.gif")}
         style={{
           position: "absolute",
           top: 0,

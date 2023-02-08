@@ -58,7 +58,7 @@ export default function LoginScreen2({ navigation }: any) {
           </Text>
         </Pressable>
         <Text
-          onPress={() => navigation.navigate("Forget Password")}
+          onPress={() => navigation.navigate("Mot de passe oublié")}
           style={styles.forgetPassword}
         >
           Mot de passe oublié ?
@@ -70,7 +70,7 @@ export default function LoginScreen2({ navigation }: any) {
         <Pressable style={styles.buttonRegister}>
           <Text
             style={styles.textRegister}
-            onPress={() => navigation.navigate("Register")}
+            onPress={() => navigation.navigate("Inscription")}
           >
             S'inscrire
           </Text>
